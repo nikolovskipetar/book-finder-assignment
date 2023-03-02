@@ -1,0 +1,48 @@
+.books-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+
+  &__item {
+    border: 1px solid black;
+    padding: 10px;
+    position: relative;
+
+    &--title {
+      font-size:24px;
+      text-align: center;
+      margin-bottom: 0;
+
+      @media(max-width: 1024px) {
+        font-size: 20px;
+      }
+    }
+
+    &--author {
+      text-align: center;
+      margin-top: 5px;
+      margin-bottom: 30px;
+    }
+
+    &--genre {
+      font-size: 14px;
+      text-align: right;
+      color: gray;
+      position: absolute;
+      bottom: 0;
+      right: 10px;
+    }
+  }
+
+  @media(max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media(max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media(max-width: 576px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

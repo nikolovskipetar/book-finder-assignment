@@ -1,0 +1,12 @@
+.dropdown-sort {
+  padding: 0.5rem;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fff;
+  border: 1px solid #000;
+
+  @media(max-width: 768px) {
+    margin-top: 15px;
+    width: 100%;
+  }
+}

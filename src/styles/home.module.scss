@@ -1,0 +1,22 @@
+.main {
+  max-width: 1420px;
+  margin: auto;
+  padding: 0 1rem;
+
+  &__header {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    @media(max-width: 768px) {
+      flex-flow: column-reverse;
+    }
+  }
+}
