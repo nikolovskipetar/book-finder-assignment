@@ -2,24 +2,25 @@ import { ChangeEvent, FC, FormEvent, useState } from 'react'
 import styles from './style.module.scss'
 
 interface SearchBarProps {
+  searchQuery: string
+  setSearchQuery: (query: string) => void,
   onSearch: (query: string) => void,
-  onClearSearch: () => void
+  onClearSearch: () => void,
 }
 
-const SearchBar: FC<SearchBarProps> = ({ onSearch, onClearSearch }) => {
-  const [query, setQuery] = useState('')
+const SearchBar: FC<SearchBarProps> = ({ searchQuery, setSearchQuery, onSearch, onClearSearch }) => {
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value)
+    setSearchQuery(event.target.value)
   }
 
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    onSearch(query)
+    onSearch(searchQuery)
   }
 
   const handleClearSearch = () => {
-    setQuery('')
+    setSearchQuery('')
     onClearSearch()
   }
 
@@ -28,7 +29,7 @@ const SearchBar: FC<SearchBarProps> = ({ onSearch, onClearSearch }) => {
       <input
         className={styles['search-bar__input']}
         placeholder="Search..."
-        value={query}
+        value={searchQuery}
         onChange={handleSearchChange}
       />
       <button
@@ -38,7 +39,7 @@ const SearchBar: FC<SearchBarProps> = ({ onSearch, onClearSearch }) => {
         Search <i className="fas fa-search"/>
       </button>
 
-      {query && (
+      {searchQuery && (
         <button
           className={styles['search-bar__button']}
           onClick={handleClearSearch}
