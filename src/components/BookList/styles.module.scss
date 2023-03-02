@@ -1,12 +1,19 @@
 .books-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-gap: 15px;
 
   &__item {
     border: 1px solid black;
+    border-radius: 10px;
+    min-height: 220px;
     padding: 10px;
     position: relative;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    @meida(max-width: 576px) {
+      min-height: 120px;
+    }
 
     &--title {
       font-size:24px;
